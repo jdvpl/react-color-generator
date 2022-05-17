@@ -1,15 +1,24 @@
 import { useState } from 'react'
+import Values from 'values.js';
 
 const App=()=> {
   const [color, setcolor] = useState('')
   const [error, seterror] = useState(false);
-
+  const [listColors, setlistColors] = useState(new Values('#FF7777').all(2));
 
   const handleSubmit=(e)=>{
     e.preventDefault();
+
+    try {
+      let colors=new Values(color).all(2);
+      setlistColors(colors);
+    } catch (error) {
+      seterror(true);
+      console.log(error)
+    }
   }
   return (
-
+    <>
     <section className='container'>
       <h3>Color Generator</h3>
 
@@ -25,6 +34,8 @@ const App=()=> {
         <button type="submit" className="btn">Generate colors</button>
       </form>
     </section>
+    
+    </>
   )
 }
 
