@@ -19,7 +19,7 @@ const SingleColor = ({rgb,weight,index,hexColor}) => {
   rgbToHex
   return (
     <article 
-    className={`color ${index >10 && 'color-light'}`} 
+    className={`color ${index >70 && 'color-light'}`} 
     style={{ background:`rgb(${bcg})`}}
     onClick={() =>{setalert(true)
     navigator.clipboard.writeText(hexValue)
