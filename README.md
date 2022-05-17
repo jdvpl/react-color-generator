@@ -5,3 +5,10 @@
 ```
   npm i values.js
 ```
+
+
+### Website URL
+
+```
+  https://colors-generator-jdvpl.netlify.app/
+```
