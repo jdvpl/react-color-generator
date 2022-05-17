@@ -1,44 +1,30 @@
 import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App=()=> {
+  const [color, setcolor] = useState('')
+  const [error, seterror] = useState(false);
 
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+
+    <section className='container'>
+      <h3>Color Generator</h3>
+
+      <form onSubmit={handleSubmit}>
+        <input 
+        type="text" 
+        name="color" 
+        id="" placeholder="type a color"
+        value={color} 
+        onChange={(e)=>setcolor(e.target.value)}
+        className={`${error ? 'error' :null}`}
+        />
+        <button type="submit" className="btn">Generate colors</button>
+      </form>
+    </section>
   )
 }
 
